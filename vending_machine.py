@@ -1,5 +1,6 @@
 
 def give_change(denominations, amount):
+    l = [1,2,3]
     denominations = sorted(denominations, reverse=True)
     change = []
 
