@@ -20,15 +20,15 @@ class TestVendingMachine(unittest.TestCase):
         self.assertEquals(coins, [1, 1, 1])
 
     def test_return_one_of_each_higher_denomination(self):
-        coins = vending_machine.give_change([1, 2, 5, 10], 8)
+        coins = vending_machine.give_change([10, 5, 2, 1], 8)
         self.assertEquals(coins, [5, 2, 1])
 
     def test_return_more_than_one_of_denomination(self):
-        coins = vending_machine.give_change([1, 2, 5, 10], 29)
+        coins = vending_machine.give_change([10, 5, 2, 1], 29)
         self.assertEquals(coins, [10, 10, 5, 2, 2])
 
-    def test_return_right_denominations(self):
-        coins = vending_machine.give_change([1, 2, 5, 10], 57)
+    def test_denominations_dont_need_to_be_sorted(self):
+        coins = vending_machine.give_change([1, 5, 10, 2], 57)
         self.assertEquals(coins, [10, 10, 10, 10, 10, 5, 2])
 
     def test_cant_give_exact_change(self):
