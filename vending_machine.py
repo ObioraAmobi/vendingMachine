@@ -1,14 +1,14 @@
 
 def give_change(denominations, amount):
-    l = [1,2,3]
     denominations = sorted(denominations, reverse=True)
     change = []
 
-    ones = [1] * amount
-
     for coin in denominations:
-        while len(ones) >= coin:
+        while coin <= amount:
             change.append(coin)
-            ones = ones[coin:]
+            amount -= coin
+
+    if amount > 0:
+        change.append(min(denominations))
 
     return change
